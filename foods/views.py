@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from datetime import datetime
+from django.http import Http404
 
 def index(request):
     today = datetime.today().date()
@@ -15,4 +16,6 @@ def food_detail(request,food):
         context['desc'] = "주머니가 가벼운 가격"
         context['price'] = 20
         context['img_path'] = "foods/images/chicken.jpg"
+    else:
+        raise Http404("no menu")
     return render(request, 'foods/detail.html', context = context)
