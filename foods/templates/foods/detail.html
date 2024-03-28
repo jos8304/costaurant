@@ -1,6 +1,20 @@
 {% load static %}
+{% load static %}
 
-<h2>{{name}}</h2>
-<div>{{desc}}</div>
-<p>{{price}}</p>
-<img src={% get_static_prefix %}{{img_path}}>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>코스토랑</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href={% static 'foods/css/styles_detail.css' %}>
+</head>
+<body>
+    <div class="food-detail">
+        <h2>{{menu.name}}</h2>
+        <div>{{menu.desc}}</div>
+        <p>{{menu.price}}</p>
+        <img src={% get_static_prefix %}{{menu.img_path}}>
+        <a href="/foods/menu">Back</a>
+    </div>  
+</body>
+</html>
